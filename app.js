@@ -3,7 +3,7 @@ const mysql = require("mysql");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const PORT = 5000 || 4000;
+const PORT = 5000 || 8000;
 
 
 
@@ -20,13 +20,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 
+// const connection = mysql.createConnection({
+//   host: process.env.HOST,
+//   user: process.env.DB_USER,
+//   password: process.env.PASSWORD,
+//   database: process.env.DATABASE,
+//   port: process.env.DB_PORT || 3306  // Default to port 3306 if not provided
+// });
+
+
 const connection = mysql.createConnection({
-  host: process.env.HOST,
-  user: process.env.DB_USER,
-  password: process.env.PASSWORD,
-  database: process.env.DATABASE,
-  port: process.env.DB_PORT || 3306  // Default to port 3306 if not provided
+  host: 'b7fmkkzyq0jeadvpym0p-mysql.services.clever-cloud.com',
+  user: 'uqc1iqslgj5wdgkd',
+  password: 'L4KUDBs6fINEs7fn7l3k',
+  database: 'b7fmkkzyq0jeadvpym0p',
+  port: 3306,
+  connectTimeout: 10000 // 10 seconds
 });
+
 
 
 
